@@ -12,6 +12,8 @@ Group:		X11/Applications
 Source0:	http://www.freedesktop.org/standards/%{name}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-fix-mime-info-path.patch
 Patch1:		%{name}-am_fix.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
 %{!?_without_building_doc:BuildRequires:	docbook-utils}
 BuildRequires:  libxml2-devel >= 2.4.0
 URL:		http://www.freedesktop.org/standards/shared-mime-info.html
@@ -75,7 +77,7 @@ formatu i po³±czenie ich razem.
 
 %build
 rm -f missing
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %{configure}
