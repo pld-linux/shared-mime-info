@@ -1,0 +1,12 @@
+diff -urN aaa/shared-mime-info-0.7/Makefile.am shared-mime-info-0.7/Makefile.am
+--- aaa/shared-mime-info-0.7/Makefile.am	Thu Apr 25 16:46:29 2002
++++ shared-mime-info-0.7/Makefile.am	Fri Jun  7 22:49:04 2002
+@@ -2,7 +2,7 @@
+ 
+ AUTOMAKE_OPTIONS = foreign
+ 
+-mimeinfodir = $(datadir)/mime/mime-info
++mimeinfodir = $(datadir)/mime-info
+ mimeinfo_DATA = freedesktop-shared.mimeinfo
+ 
+ EXTRA_DIST = shared-mime-info-spec.xml freedesktop-shared.mimeinfo
