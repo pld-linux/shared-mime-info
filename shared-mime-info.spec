@@ -1,21 +1,21 @@
 Summary:	Shared MIME-Info Specification
 Summary(pl):	Wspólna Specyfikacja MIME-Info
 Name:		shared-mime-info
-Version:	0.13
-Release:	2
+Version:	0.14
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://freedesktop.org/Software/%{name}/%{name}-%{version}.tar.gz
-# Source0-md5:	59827a0de271c30581e923190fb7d3df
+# Source0-md5:	c5fc523a8c2b3464c7aa521b6014e5c8
 Patch0:		%{name}-dtd_path.patch
-Patch1:		%{name}-RIFF.patch
+Patch1:		%{name}-locale-names.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	docbook-utils
 BuildRequires:	glib2-devel
-BuildRequires:	pkgconfig
 BuildRequires:	libxml2-devel >= 2.4.0
+BuildRequires:	pkgconfig
 URL:		http://www.freedesktop.org/software/shared-mime-info
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -72,6 +72,8 @@ po³±czenie ich.
 %patch0 -p1
 %patch1 -p1
 
+mv po/{no,nb}.po
+
 %build
 rm -f missing
 %{__aclocal}
@@ -102,3 +104,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man*/*
 %{_datadir}/mime
+%{_pkgconfigdir}/*.pc
