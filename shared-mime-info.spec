@@ -1,5 +1,5 @@
-Summary:	Shared MIME-Info Specification
-Summary(pl):	Wspólna Specyfikacja MIME-Info
+Summary:	Shared MIME-info specification
+Summary(pl):	Wspólna specyfikacja MIME-info
 Name:		shared-mime-info
 Version:	0.14
 Release:	2
