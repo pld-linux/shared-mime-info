@@ -1,14 +1,15 @@
 Summary:	Shared MIME-Info Specification
 Summary(pl):	Wspólna Specyfikacja MIME-Info
 Name:		shared-mime-info
-Version:	0.7
+Version:	0.8
 Release:	1
-License:	Free
+License:	GPL
 Group:		X11/Applications
 Source0:	http://www.freedesktop.org/standards/%{name}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-fix-mime-info-path.patch
+Patch1:		%{name}-am_fix.patch
+BuildRequires:  libxml-devel
 URL:		http://www.freedesktop.org/standards/shared-mime-info.html
-BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -65,6 +66,7 @@ formatu i po³±czenie ich razem.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 rm -f missing
@@ -79,10 +81,17 @@ aclocal
 rm -rf $RPM_BUILD_ROOT
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
+%post
+%{_bindir}/update-mime-database %{_datadir}/mime-info
+
+%postun
+%{_bindir}/update-mime-database %{_datadir}/mime-info
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc shared-mime-info-spec.xml
+%doc shared-mime-info-spec.xml README
+%attr(755,root,root) %{_bindir}/*
 %{_datadir}/mime-info/*
