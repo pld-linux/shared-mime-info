@@ -15,7 +15,7 @@ Patch1:		%{name}-am_fix.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 %{!?_without_building_doc:BuildRequires:	docbook-utils}
-BuildRequires:	pkg-config
+BuildRequires:	pkgconfig
 BuildRequires:  libxml2-devel >= 2.4.0
 URL:		http://www.freedesktop.org/standards/shared-mime-info.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
