@@ -13,7 +13,7 @@ Patch2:		%{name}-dtd_path.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:  docbook-utils
+BuildRequires:	docbook-utils
 BuildRequires:	glib2-devel
 BuildRequires:	pkgconfig
 BuildRequires:	libxml2-devel >= 2.4.0
