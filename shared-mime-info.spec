@@ -11,6 +11,7 @@ Patch0:		%{name}-dtd_path.patch
 Patch1:		%{name}-locale-names.patch
 Patch2:		%{name}-dicom.patch
 Patch3:		%{name}-polish.patch
+Patch4:		%{name}-word.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	docbook-dtd412-xml
@@ -75,6 +76,7 @@ po³±czenie ich.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p0
 
 mv po/{no,nb}.po
 
