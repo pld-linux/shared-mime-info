@@ -1,14 +1,19 @@
+#
+# Conditional build:
+# _without_building_doc - don't build html documentation from xml source
+
 Summary:	Shared MIME-Info Specification
 Summary(pl):	Wspólna Specyfikacja MIME-Info
 Name:		shared-mime-info
-Version:	0.8
+Version:	0.9
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.freedesktop.org/standards/%{name}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-fix-mime-info-path.patch
 Patch1:		%{name}-am_fix.patch
-BuildRequires:  libxml-devel
+%{!?_without_building_doc:BuildRequires:	docbook-utils}
+BuildRequires:  libxml2-devel >= 2.4.0
 URL:		http://www.freedesktop.org/standards/shared-mime-info.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -75,7 +80,7 @@ aclocal
 %{__automake}
 %{configure}
 %{__make}
-#db2pdf shared-mime-info-spec.xml
+%{!?_without_building_doc:db2html shared-mime-info-spec.xml}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -92,6 +97,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc shared-mime-info-spec.xml README
+%doc shared-mime-info-spec.* README NEWS
 %attr(755,root,root) %{_bindir}/*
+%{_mandir}/man*/*
 %{_datadir}/mime-info/*
