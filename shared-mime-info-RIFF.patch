@@ -1,0 +1,13 @@
+diff -urN aa/shared-mime-info-0.13/freedesktop.org.xml.in shared-mime-info-0.13/freedesktop.org.xml.in
+--- aa/shared-mime-info-0.13/freedesktop.org.xml.in	2004-01-14 21:36:22.000000000 +0100
++++ shared-mime-info-0.13/freedesktop.org.xml.in	2004-02-12 14:39:23.019762160 +0100
+@@ -1468,7 +1468,8 @@
+   </mime-type>
+   <mime-type type="audio/x-riff">
+     <_comment>RIFF audio</_comment>
+-    <magic priority="50">
++    <!-- need to be lower prio than avi -->
++    <magic priority="45">
+       <match type="string" value="RIFF" offset="0"/>
+     </magic>
+   </mime-type>
