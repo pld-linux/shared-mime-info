@@ -2,14 +2,13 @@ Summary:	Shared MIME-Info Specification
 Summary(pl):	Wspólna Specyfikacja MIME-Info
 Name:		shared-mime-info
 Version:	0.12
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.freedesktop.org/software/%{name}/releases/%{name}-%{version}.tar.gz
 # Source0-md5:	fd9002d7fffd8edb3622ca9414952dd7
-Patch0:		%{name}-fix-mime-info-path.patch
-Patch1:		%{name}-am_fix.patch
-Patch2:		%{name}-dtd_path.patch
+Patch0:		%{name}-am_fix.patch
+Patch1:		%{name}-dtd_path.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	docbook-dtd412-xml
@@ -17,7 +16,7 @@ BuildRequires:	docbook-utils
 BuildRequires:	glib2-devel
 BuildRequires:	pkgconfig
 BuildRequires:	libxml2-devel >= 2.4.0
-URL:		http://www.freedesktop.org/standards/shared-mime-info.html
+URL:		http://www.freedesktop.org/software/shared-mime-info
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -72,15 +71,17 @@ po³±czenie ich.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 rm -f missing
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%{configure}
+
+%configure
+
 %{__make}
+
 db2html shared-mime-info-spec.xml
 
 %install
@@ -90,10 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 %post
-%{_bindir}/update-mime-database %{_datadir}/mime-info
-
-%postun
-%{_bindir}/update-mime-database %{_datadir}/mime-info
+%{_bindir}/update-mime-database %{_datadir}/mime
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -103,4 +101,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc shared-mime-info-spec README NEWS
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man*/*
-%{_datadir}/mime-info/*
+%dir %{_datadir}/mime
+%{_datadir}/mime/packages
