@@ -1,12 +1,11 @@
-diff -urN aaa/shared-mime-info-0.7/Makefile.am shared-mime-info-0.7/Makefile.am
---- aaa/shared-mime-info-0.7/Makefile.am	Thu Apr 25 16:46:29 2002
-+++ shared-mime-info-0.7/Makefile.am	Fri Jun  7 22:49:04 2002
-@@ -2,7 +2,7 @@
+diff -urN aaa/shared-mime-info-0.8/configure.in shared-mime-info-0.8/configure.in
+--- aaa/shared-mime-info-0.8/configure.in	Wed Jul 24 18:12:09 2002
++++ shared-mime-info-0.8/configure.in	Thu Jul 25 22:54:24 2002
+@@ -64,6 +64,6 @@
+ dnl Checks for typedefs, structures, and compiler characteristics.
+ AC_C_CONST
  
- AUTOMAKE_OPTIONS = foreign
+-AC_SUBST([mimedir],         ['${datadir}/mime'])
++AC_SUBST([mimedir],         ['${datadir}/mime-info'])
  
--mimeinfodir = $(datadir)/mime/mime-info
-+mimeinfodir = $(datadir)/mime-info
- mimeinfo_DATA = freedesktop-shared.mimeinfo
- 
- EXTRA_DIST = shared-mime-info-spec.xml freedesktop-shared.mimeinfo
+ AC_OUTPUT(Makefile)
