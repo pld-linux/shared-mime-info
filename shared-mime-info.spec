@@ -10,6 +10,7 @@ Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.freedesktop.org/standards/%{name}/%{name}-%{version}.tar.gz
+# Source0-md5:	913313c8fe581061663be76c0cdaa9be
 Patch0:		%{name}-fix-mime-info-path.patch
 Patch1:		%{name}-am_fix.patch
 BuildRequires:	autoconf
