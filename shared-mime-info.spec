@@ -1,27 +1,24 @@
-#
-# Conditional build:
-# _without_building_doc - don't build html documentation from xml source
-#
 Summary:	Shared MIME-Info Specification
 Summary(pl):	Wspólna Specyfikacja MIME-Info
 Name:		shared-mime-info
 Version:	0.11
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.freedesktop.org/standards/%{name}/%{name}-%{version}.tar.gz
 # Source0-md5:	913313c8fe581061663be76c0cdaa9be
 Patch0:		%{name}-fix-mime-info-path.patch
 Patch1:		%{name}-am_fix.patch
+Patch2:		%{name}-dtd_path.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
-%{!?_without_building_doc:BuildRequires:	docbook-utils}
+BuildRequires:	docbook-dtd412-xml
+BuildRequires:  docbook-utils
 BuildRequires:	glib2-devel
 BuildRequires:	pkgconfig
 BuildRequires:	libxml2-devel >= 2.4.0
 URL:		http://www.freedesktop.org/standards/shared-mime-info.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %description
 This is the freedesktop.org shared MIME info database.
@@ -75,6 +72,7 @@ po³±czenie ich.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 rm -f missing
@@ -83,7 +81,7 @@ rm -f missing
 %{__automake}
 %{configure}
 %{__make}
-%{!?_without_building_doc:db2html shared-mime-info-spec.xml}
+db2html shared-mime-info-spec.xml
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -102,7 +100,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc shared-mime-info-spec.* README NEWS
+%doc shared-mime-info-spec README NEWS
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man*/*
 %{_datadir}/mime-info/*
