@@ -19,8 +19,6 @@ BuildRequires:  libxml2-devel >= 2.4.0
 URL:		http://www.freedesktop.org/standards/shared-mime-info.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 
 %description
 This is the freedesktop.org shared MIME info database.
