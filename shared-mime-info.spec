@@ -5,7 +5,7 @@
 Summary:	Shared MIME-Info Specification
 Summary(pl):	Wspólna Specyfikacja MIME-Info
 Name:		shared-mime-info
-Version:	0.10
+Version:	0.11
 Release:	1
 License:	GPL
 Group:		X11/Applications
