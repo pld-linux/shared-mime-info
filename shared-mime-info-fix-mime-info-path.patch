@@ -5,7 +5,8 @@ diff -urN aaa/shared-mime-info-0.8/configure.in shared-mime-info-0.8/configure.i
  dnl Checks for typedefs, structures, and compiler characteristics.
  AC_C_CONST
  
--AC_SUBST([mimedir],         ['${datadir}/mime'])
-+AC_SUBST([mimedir],         ['${datadir}/mime-info'])
+-mimedir=['${datadir}/mime']
++mimedir=['${datadir}/mime-info']
+ AC_SUBST(mimedir)
  
  AC_OUTPUT(Makefile)
