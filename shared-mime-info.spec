@@ -2,7 +2,7 @@ Summary:	Shared MIME-info specification
 Summary(pl):	Wspólna specyfikacja MIME-info
 Name:		shared-mime-info
 Version:	0.15
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications
 Source0:	http://freedesktop.org/Software/%{name}/%{name}-%{version}.tar.gz
@@ -108,5 +108,21 @@ rm -rf $RPM_BUILD_ROOT
 %doc shared-mime-info-spec README NEWS
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man*/*
-%{_datadir}/mime
+%ghost %{_datadir}/mime/globs
+%ghost %{_datadir}/mime/magic
+%ghost %{_datadir}/mime/XMLnamespaces
+%ghost %{_datadir}/mime/application
+%ghost %{_datadir}/mime/audio
+%ghost %{_datadir}/mime/image
+%ghost %{_datadir}/mime/inode
+%ghost %{_datadir}/mime/message
+%ghost %{_datadir}/mime/model
+%ghost %{_datadir}/mime/multipart
+%ghost %{_datadir}/mime/text
+%ghost %{_datadir}/mime/video
+%dir %{_datadir}/mime
+%dir %{_datadir}/mime/packages
+%{_datadir}/mime/packages/*
+
+
 %{_pkgconfigdir}/*.pc
