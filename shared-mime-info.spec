@@ -2,13 +2,14 @@ Summary:	Shared MIME-info specification
 Summary(pl):	Wspólna specyfikacja MIME-info
 Name:		shared-mime-info
 Version:	0.14
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications
 Source0:	http://freedesktop.org/Software/%{name}/%{name}-%{version}.tar.gz
 # Source0-md5:	c5fc523a8c2b3464c7aa521b6014e5c8
 Patch0:		%{name}-dtd_path.patch
 Patch1:		%{name}-locale-names.patch
+Patch2:		%{name}-dicom.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	docbook-dtd412-xml
@@ -71,6 +72,7 @@ po³±czenie ich.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 mv po/{no,nb}.po
 
