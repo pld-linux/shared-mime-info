@@ -1,14 +1,13 @@
 Summary:	Shared MIME-Info Specification
 Summary(pl):	Wspólna Specyfikacja MIME-Info
 Name:		shared-mime-info
-Version:	0.12
-Release:	2
+Version:	0.13
+Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://www.freedesktop.org/software/%{name}/releases/%{name}-%{version}.tar.gz
-# Source0-md5:	fd9002d7fffd8edb3622ca9414952dd7
-Patch0:		%{name}-am_fix.patch
-Patch1:		%{name}-dtd_path.patch
+Source0:	http://freedesktop.org/Software/%{name}/%{name}-%{version}.tar.gz
+# Source0-md5:	59827a0de271c30581e923190fb7d3df
+Patch0:		%{name}-dtd_path.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	docbook-dtd412-xml
@@ -70,16 +69,13 @@ po³±czenie ich.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 rm -f missing
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-
 %configure
-
 %{__make}
 
 db2html shared-mime-info-spec.xml
@@ -90,16 +86,17 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%find_lang %{name}
+
 %post
 %{_bindir}/update-mime-database %{_datadir}/mime
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc shared-mime-info-spec README NEWS
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man*/*
-%dir %{_datadir}/mime
-%{_datadir}/mime/packages
+%{_datadir}/mime
