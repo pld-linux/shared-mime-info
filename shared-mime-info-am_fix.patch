@@ -1,0 +1,13 @@
+diff -urN aaa/shared-mime-info-0.8/Makefile.am shared-mime-info-0.8/Makefile.am
+--- aaa/shared-mime-info-0.8/Makefile.am	Wed Jul 24 18:29:59 2002
++++ shared-mime-info-0.8/Makefile.am	Thu Jul 25 23:02:03 2002
+@@ -13,9 +13,6 @@
+ CFLAGS = @CFLAGS@ `@PKG_CONFIG@ --cflags libxml-2.0 glib-2.0`
+ LDFLAGS = @LDFLAGS@ `@PKG_CONFIG@ --libs libxml-2.0 glib-2.0`
+ 
+-install-data-hook:
+-	"${bindir}/update-mime-database" "${mimedir}"
+-
+ uninstall-hook:
+ 	rm "${mimedir}"/{text,application,image,audio}/*.xml
+ 	rm "${mimedir}"/{inode,video,message,model,multipart}/*.xml
