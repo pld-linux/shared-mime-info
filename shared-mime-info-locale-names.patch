@@ -1,0 +1,12 @@
+diff -urN aa/shared-mime-info-0.14/configure.in shared-mime-info-0.14/configure.in
+--- aa/shared-mime-info-0.14/configure.in	2004-03-22 04:17:02.000000000 +0100
++++ shared-mime-info-0.14/configure.in	2004-03-26 15:00:42.419859336 +0100
+@@ -9,7 +9,7 @@
+ 
+ GETTEXT_PACKAGE=shared-mime-info
+ AC_SUBST(GETTEXT_PACKAGE)
+-ALL_LINGUAS="az cy fi fr hu nl nn no sv sr"
++ALL_LINGUAS="az cy fi fr hu nb nl nn sv sr"
+ AM_GLIB_GNU_GETTEXT
+ 
+ dnl Check pkg-config is installed
