@@ -52,7 +52,7 @@ To jest wspólna baza informacji MIME freedesktop.org.
 Wiele programów oraz pulpitów u¿ywa systemu MIME do reprezentacji
 typów plików. Czêsto, zachodzi potrzeba opracowania prawid³owego typu
 MIME dla pliku. Przewa¿nie jest to robione poprzez sprawdzenie nazwy
-lub zawarto¶ci pliku i znale¼ienie odpowiedniego typu MIME w bazie.
+lub zawarto¶ci pliku i znalezienie odpowiedniego typu MIME w bazie.
 
 W ramach wspó³pracy, u¿ytecznym jest u¿ywanie tej samej bazy przez
 ró¿ne programy. Dziêki temu pozycja dodana do bazy realizowana jest we
@@ -62,13 +62,13 @@ Ta specyfikacja ma za zadanie zunifikowanie systemów odpytuj±cych o
 typ u¿ywanych przez GNOME, KDE i ROX. W tym pakiecie zawarte s±
 jedynie mapowania nazwa-typ i zawarto¶æ-typ. Inne informacje MIME,
 takie jak domy¶lna procedura obs³ugi dla poszczególnych typów, czy
-ikona u¿ywana podczas wy¶wietlania w menad¿erze plików, nie s±
+ikona u¿ywana podczas wy¶wietlania w zarz±dcy plików, nie s±
 zawarte, gdy¿ zale¿± od gustu.
 
 Dlatego freedesktop.org udostêpnia wspólne bazy w tym formacie aby
 unikn±æ niekonsekwencji miêdzy pulpitami. Ta baza zosta³a stworzona
-poprzez przekonwertowanie istniej±cych baz KDE i GNOME do nowego
-formatu i po³±czenie ich razem.
+poprzez konwersjê istniej±cych baz KDE i GNOME do nowego formatu i
+po³±czenie ich.
 
 %prep
 %setup -q
