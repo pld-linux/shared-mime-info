@@ -1,7 +1,7 @@
 #
 # Conditional build:
 # _without_building_doc - don't build html documentation from xml source
-
+#
 Summary:	Shared MIME-Info Specification
 Summary(pl):	Wspólna Specyfikacja MIME-Info
 Name:		shared-mime-info
@@ -17,7 +17,7 @@ BuildRequires:	automake
 %{!?_without_building_doc:BuildRequires:	docbook-utils}
 BuildRequires:	glib2-devel
 BuildRequires:	pkgconfig
-BuildRequires:  libxml2-devel >= 2.4.0
+BuildRequires:	libxml2-devel >= 2.4.0
 URL:		http://www.freedesktop.org/standards/shared-mime-info.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -62,8 +62,8 @@ Ta specyfikacja ma za zadanie zunifikowanie systemów odpytuj±cych o
 typ u¿ywanych przez GNOME, KDE i ROX. W tym pakiecie zawarte s±
 jedynie mapowania nazwa-typ i zawarto¶æ-typ. Inne informacje MIME,
 takie jak domy¶lna procedura obs³ugi dla poszczególnych typów, czy
-ikona u¿ywana podczas wy¶wietlania w zarz±dcy plików, nie s±
-zawarte, gdy¿ zale¿± od gustu.
+ikona u¿ywana podczas wy¶wietlania w zarz±dcy plików, nie s± zawarte,
+gdy¿ zale¿± od gustu.
 
 Dlatego freedesktop.org udostêpnia wspólne bazy w tym formacie aby
 unikn±æ niekonsekwencji miêdzy pulpitami. Ta baza zosta³a stworzona
@@ -86,7 +86,9 @@ rm -f missing
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %post
 %{_bindir}/update-mime-database %{_datadir}/mime-info
