@@ -2,7 +2,7 @@ Summary:	Shared MIME-info specification
 Summary(pl):	Wspólna specyfikacja MIME-info
 Name:		shared-mime-info
 Version:	0.15
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Applications
 Source0:	http://freedesktop.org/Software/%{name}/%{name}-%{version}.tar.gz
