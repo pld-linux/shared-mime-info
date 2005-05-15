@@ -100,7 +100,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 umask 022
-%{_bindir}/update-mime-database %{_datadir}/mime
+%{_bindir}/update-mime-database %{_datadir}/mime ||:
 
 %clean
 rm -rf $RPM_BUILD_ROOT
