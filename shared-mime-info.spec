@@ -1,12 +1,13 @@
 Summary:	Shared MIME-info specification
 Summary(pl):	Wspólna specyfikacja MIME-info
 Name:		shared-mime-info
-Version:	0.15
-Release:	4
+Version:	0.16
+Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://freedesktop.org/Software/%{name}/%{name}-%{version}.tar.gz
-# Source0-md5:	51793b041edc68717c3f87e26a4bc087
+#Source0:	http://freedesktop.org/Software/%{name}/%{name}-%{version}.tar.gz
+Source0:	http://freedesktop.org/~jrb/%{name}-%{version}.tar.gz
+# Source0-md5:	255a20bae753ebd41e2286b01e7b86d0
 Patch0:		%{name}-dtd_path.patch
 Patch1:		%{name}-locale-names.patch
 Patch2:		%{name}-dicom.patch
@@ -73,12 +74,12 @@ po³±czenie ich.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
+#%patch1 -p1
 %patch2 -p1
-%patch3 -p1
-%patch4 -p0
+#%patch3 -p1
+#%patch4 -p0
 
-mv po/{no,nb}.po
+#mv po/{no,nb}.po
 
 %build
 rm -f missing
