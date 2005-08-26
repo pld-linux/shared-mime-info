@@ -5,7 +5,7 @@ Version:	0.16
 Release:	1
 License:	GPL
 Group:		X11/Applications
-#Source0:	http://freedesktop.org/Software/%{name}/%{name}-%{version}.tar.gz
+#Source0:	http://freedesktop.org/software/shared-mime-info/%{name}-%{version}.tar.gz
 Source0:	http://freedesktop.org/~jrb/%{name}-%{version}.tar.gz
 # Source0-md5:	255a20bae753ebd41e2286b01e7b86d0
 Patch0:		%{name}-dtd_path.patch
@@ -13,6 +13,7 @@ Patch1:		%{name}-locale-names.patch
 Patch2:		%{name}-dicom.patch
 Patch3:		%{name}-polish.patch
 Patch4:		%{name}-word.patch
+URL:		http://www.freedesktop.org/wiki/Software/shared-mime-info
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	docbook-dtd412-xml
@@ -20,7 +21,6 @@ BuildRequires:	docbook-utils
 BuildRequires:	glib2-devel
 BuildRequires:	libxml2-devel >= 2.4.0
 BuildRequires:	pkgconfig
-URL:		http://www.freedesktop.org/software/shared-mime-info
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
