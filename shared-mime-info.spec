@@ -16,10 +16,10 @@ Patch4:		%{name}-word.patch
 URL:		http://www.freedesktop.org/wiki/Software/shared-mime-info
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	intltool
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	docbook-utils
 BuildRequires:	glib2-devel
+BuildRequires:	intltool
 BuildRequires:	libxml2-devel >= 2.4.0
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -127,6 +127,5 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/mime
 %dir %{_datadir}/mime/packages
 %{_datadir}/mime/packages/*
-
 
 %{_pkgconfigdir}/*.pc
