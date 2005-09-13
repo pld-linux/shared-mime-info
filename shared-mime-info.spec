@@ -16,6 +16,7 @@ Patch4:		%{name}-word.patch
 URL:		http://www.freedesktop.org/wiki/Software/shared-mime-info
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	intltool
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	docbook-utils
 BuildRequires:	glib2-devel
