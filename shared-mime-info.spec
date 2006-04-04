@@ -1,10 +1,11 @@
+# NOTE: there is http://freedesktop.org/~hadess/shared-mime-info-0.17.tar.gz
 Summary:	Shared MIME-info specification
 Summary(pl):	Wspólna specyfikacja MIME-info
 Name:		shared-mime-info
 Version:	0.16
 Release:	1
 License:	GPL
-Group:		X11/Applications
+Group:		Applications
 #Source0:	http://freedesktop.org/software/shared-mime-info/%{name}-%{version}.tar.gz
 Source0:	http://freedesktop.org/~jrb/%{name}-%{version}.tar.gz
 # Source0-md5:	255a20bae753ebd41e2286b01e7b86d0
@@ -18,7 +19,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	docbook-utils
-BuildRequires:	glib2-devel
+BuildRequires:	glib2-devel >= 2.0.0
 BuildRequires:	intltool
 BuildRequires:	libxml2-devel >= 2.4.0
 BuildRequires:	pkgconfig
@@ -83,7 +84,6 @@ po³±czenie ich.
 #mv po/{no,nb}.po
 
 %build
-rm -f missing
 %{__aclocal}
 %{__autoconf}
 %{__automake}
@@ -100,12 +100,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %find_lang %{name}
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %post
 umask 022
 %{_bindir}/update-mime-database %{_datadir}/mime ||:
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
