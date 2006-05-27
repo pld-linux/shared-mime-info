@@ -1,14 +1,13 @@
-# NOTE: there is http://freedesktop.org/~hadess/shared-mime-info-0.17.tar.gz
 Summary:	Shared MIME-info specification
 Summary(pl):	Wspólna specyfikacja MIME-info
 Name:		shared-mime-info
-Version:	0.16
-Release:	1
+Version:	0.17
+Release:	0.1
 License:	GPL
 Group:		Applications
 #Source0:	http://freedesktop.org/software/shared-mime-info/%{name}-%{version}.tar.gz
-Source0:	http://freedesktop.org/~jrb/%{name}-%{version}.tar.gz
-# Source0-md5:	255a20bae753ebd41e2286b01e7b86d0
+Source0:	http://freedesktop.org/~hadess/%{name}-%{version}.tar.gz
+# Source0-md5:	f1014ad243b5245279c0abe1b95d9e38
 Patch0:		%{name}-dtd_path.patch
 Patch1:		%{name}-locale-names.patch
 Patch2:		%{name}-dicom.patch
@@ -76,12 +75,10 @@ po³±czenie ich.
 %prep
 %setup -q
 %patch0 -p1
-#%patch1 -p1
+%patch1 -p1
 %patch2 -p1
 #%patch3 -p1
 #%patch4 -p0
-
-#mv po/{no,nb}.po
 
 %build
 %{__aclocal}
