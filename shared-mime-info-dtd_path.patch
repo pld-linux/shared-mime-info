@@ -1,11 +1,10 @@
-diff -ur shared-mime-info-0.15/shared-mime-info-spec.xml shared-mime-info-0.15-dee/shared-mime-info-spec.xml
---- shared-mime-info-0.15/shared-mime-info-spec.xml	2004-05-11 10:33:33.000000000 +0000
-+++ shared-mime-info-0.15-dee/shared-mime-info-spec.xml	2004-09-03 08:07:41.782111936 +0000
+--- shared-mime-info-0.17/shared-mime-info-spec.xml.orig	2005-12-01 19:53:26.000000000 +0100
++++ shared-mime-info-0.17/shared-mime-info-spec.xml	2006-05-27 20:27:32.000000000 +0200
 @@ -1,6 +1,6 @@
  <?xml version="1.0" standalone="no"?>
  <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
 -"/usr/share/sgml/docbook/dtd/xml/4.1.2/docbookx.dtd" [
 +"/usr/share/sgml/docbook/xml-dtd-4.1.2/docbookx.dtd" [
-   <!ENTITY updated "15 Oct 2003">
-   <!ENTITY version "0.13">
+   <!ENTITY updated "1 December 2005">
+   <!ENTITY version "0.15">
  ]>
