@@ -1,12 +1,11 @@
-diff -ur shared-mime-info-0.15/configure.in shared-mime-info-0.15-dee/configure.in
---- shared-mime-info-0.15/configure.in	2004-08-30 18:12:03.000000000 +0000
-+++ shared-mime-info-0.15-dee/configure.in	2004-09-03 08:10:20.721949408 +0000
+--- shared-mime-info-0.16/configure.in.orig	2005-03-22 20:39:56.000000000 +0100
++++ shared-mime-info-0.16/configure.in	2006-05-27 20:16:29.000000000 +0200
 @@ -16,7 +16,7 @@
  AC_PROG_INTLTOOL
  GETTEXT_PACKAGE=shared-mime-info
  AC_SUBST(GETTEXT_PACKAGE)
--ALL_LINGUAS="az cs cy de el fi fr hu ko nl nn no sv sr"
-+ALL_LINGUAS="az cs cy de el fi fr hu ko nb nl nn sv sr"
+-ALL_LINGUAS="az bg cs cy de el eo es eu fi fr hu it ja ko ms nb nl nn no pl pt pt_BR ru sq sr sv uk zh_CN"
++ALL_LINGUAS="az bg cs cy de el eo es eu fi fr hu it ja ko ms nb nl nn pl pt pt_BR ru sq sr sv uk zh_CN"
  AM_GLIB_GNU_GETTEXT
  
  dnl Check pkg-config is installed
