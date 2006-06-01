@@ -2,7 +2,7 @@ Summary:	Shared MIME-info specification
 Summary(pl):	Wspólna specyfikacja MIME-info
 Name:		shared-mime-info
 Version:	0.17
-Release:	0.1
+Release:	0.2
 License:	GPL
 Group:		Applications
 #Source0:	http://freedesktop.org/software/shared-mime-info/%{name}-%{version}.tar.gz
@@ -13,6 +13,7 @@ Patch1:		%{name}-locale-names.patch
 Patch2:		%{name}-dicom.patch
 Patch3:		%{name}-polish.patch
 Patch4:		%{name}-word.patch
+Patch5:		%{name}-directory_alias_fix.patch
 URL:		http://www.freedesktop.org/wiki/Software/shared-mime-info
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -79,6 +80,7 @@ po³±czenie ich.
 %patch2 -p1
 #%patch3 -p1
 #%patch4 -p0
+%patch5 -p1
 
 %build
 %{__aclocal}
