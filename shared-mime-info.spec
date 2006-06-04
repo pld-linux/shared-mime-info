@@ -1,3 +1,4 @@
+# TODO: update polish patch
 Summary:	Shared MIME-info specification
 Summary(pl):	Wspólna specyfikacja MIME-info
 Name:		shared-mime-info
