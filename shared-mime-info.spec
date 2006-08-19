@@ -2,28 +2,27 @@
 Summary:	Shared MIME-info specification
 Summary(pl):	Wspólna specyfikacja MIME-info
 Name:		shared-mime-info
-Version:	0.17
-Release:	0.2
+Version:	0.18
+Release:	0.1
 License:	GPL
 Group:		Applications
 #Source0:	http://freedesktop.org/software/shared-mime-info/%{name}-%{version}.tar.gz
 Source0:	http://freedesktop.org/~hadess/%{name}-%{version}.tar.gz
-# Source0-md5:	f1014ad243b5245279c0abe1b95d9e38
+# Source0-md5:	63398294a078dd9f72a7c4e122a668c8
 Patch0:		%{name}-dtd_path.patch
-Patch1:		%{name}-locale-names.patch
-Patch2:		%{name}-dicom.patch
-Patch3:		%{name}-polish.patch
-Patch4:		%{name}-word.patch
-Patch5:		%{name}-directory_alias_fix.patch
+Patch1:		%{name}-dicom.patch
+Patch2:		%{name}-directory_alias_fix.patch
+Patch3:		%{name}-debug.patch
 URL:		http://www.freedesktop.org/wiki/Software/shared-mime-info
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	docbook-utils
-BuildRequires:	glib2-devel >= 2.0.0
+BuildRequires:	glib2-devel >= 1:2.12.2
 BuildRequires:	intltool
-BuildRequires:	libxml2-devel >= 2.4.0
+BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -79,15 +78,14 @@ po³±czenie ich.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-#%patch3 -p1
-#%patch4 -p0
-%patch5 -p1
+%patch3 -p1
 
 %build
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure
+%configure \
+	--disable-update-mimedb
 %{__make}
 
 db2html shared-mime-info-spec.xml
@@ -98,34 +96,27 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%find_lang %{name}
+
+rm -rf $RPM_BUILD_ROOT%{_datadir}/locale
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
-umask 022
-%{_bindir}/update-mime-database %{_datadir}/mime ||:
+%update_mime_database
 
-%files -f %{name}.lang
+%preun
+# remove dirs and files created by update-mime-database
+if [ "$1" = "0" ]; then
+	rm -rf /usr/share/mime/*
+fi
+
+%files
 %defattr(644,root,root,755)
 %doc shared-mime-info-spec README NEWS
-%attr(755,root,root) %{_bindir}/*
-%{_mandir}/man*/*
-%ghost %{_datadir}/mime/globs
-%ghost %{_datadir}/mime/magic
-%ghost %{_datadir}/mime/XMLnamespaces
-%ghost %{_datadir}/mime/application
-%ghost %{_datadir}/mime/audio
-%ghost %{_datadir}/mime/image
-%ghost %{_datadir}/mime/inode
-%ghost %{_datadir}/mime/message
-%ghost %{_datadir}/mime/model
-%ghost %{_datadir}/mime/multipart
-%ghost %{_datadir}/mime/text
-%ghost %{_datadir}/mime/video
+%attr(755,root,root) %{_bindir}/update-mime-database
 %dir %{_datadir}/mime
 %dir %{_datadir}/mime/packages
-%{_datadir}/mime/packages/*
-
+%{_datadir}/mime/packages/freedesktop.org.xml
+%{_mandir}/man*/*
 %{_pkgconfigdir}/*.pc
