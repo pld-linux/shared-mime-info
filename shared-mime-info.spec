@@ -1,9 +1,8 @@
-# TODO: update polish patch
 Summary:	Shared MIME-info specification
 Summary(pl):	Wspólna specyfikacja MIME-info
 Name:		shared-mime-info
 Version:	0.18
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		Applications
 #Source0:	http://freedesktop.org/software/shared-mime-info/%{name}-%{version}.tar.gz
