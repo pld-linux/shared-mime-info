@@ -1,5 +1,5 @@
 Summary:	Shared MIME-info specification
-Summary(pl):	Wspólna specyfikacja MIME-info
+Summary(pl.UTF-8):   WspÃ³lna specyfikacja MIME-info
 Name:		shared-mime-info
 Version:	0.18
 Release:	2
@@ -49,29 +49,29 @@ to avoid inconsistencies between desktops. This database has been
 created by converting the existing KDE and GNOME databases to the new
 format and merging them together.
 
-%description -l pl
-To jest wspólna baza informacji MIME freedesktop.org.
+%description -l pl.UTF-8
+To jest wspÃ³lna baza informacji MIME freedesktop.org.
 
-Wiele programów oraz pulpitów u¿ywa systemu MIME do reprezentacji
-typów plików. Czêsto, zachodzi potrzeba opracowania prawid³owego typu
-MIME dla pliku. Przewa¿nie jest to robione poprzez sprawdzenie nazwy
-lub zawarto¶ci pliku i znalezienie odpowiedniego typu MIME w bazie.
+Wiele programÃ³w oraz pulpitÃ³w uÅ¼ywa systemu MIME do reprezentacji
+typÃ³w plikÃ³w. CzÄ™sto, zachodzi potrzeba opracowania prawidÅ‚owego typu
+MIME dla pliku. PrzewaÅ¼nie jest to robione poprzez sprawdzenie nazwy
+lub zawartoÅ›ci pliku i znalezienie odpowiedniego typu MIME w bazie.
 
-W ramach wspó³pracy, u¿ytecznym jest u¿ywanie tej samej bazy przez
-ró¿ne programy. Dziêki temu pozycja dodana do bazy realizowana jest we
+W ramach wspÃ³Å‚pracy, uÅ¼ytecznym jest uÅ¼ywanie tej samej bazy przez
+rÃ³Å¼ne programy. DziÄ™ki temu pozycja dodana do bazy realizowana jest we
 wszystkich programach.
 
-Ta specyfikacja ma za zadanie zunifikowanie systemów odpytuj±cych o
-typ u¿ywanych przez GNOME, KDE i ROX. W tym pakiecie zawarte s±
-jedynie mapowania nazwa-typ i zawarto¶æ-typ. Inne informacje MIME,
-takie jak domy¶lna procedura obs³ugi dla poszczególnych typów, czy
-ikona u¿ywana podczas wy¶wietlania w zarz±dcy plików, nie s± zawarte,
-gdy¿ zale¿± od gustu.
+Ta specyfikacja ma za zadanie zunifikowanie systemÃ³w odpytujÄ…cych o
+typ uÅ¼ywanych przez GNOME, KDE i ROX. W tym pakiecie zawarte sÄ…
+jedynie mapowania nazwa-typ i zawartoÅ›Ä‡-typ. Inne informacje MIME,
+takie jak domyÅ›lna procedura obsÅ‚ugi dla poszczegÃ³lnych typÃ³w, czy
+ikona uÅ¼ywana podczas wyÅ›wietlania w zarzÄ…dcy plikÃ³w, nie sÄ… zawarte,
+gdyÅ¼ zaleÅ¼Ä… od gustu.
 
-Dlatego freedesktop.org udostêpnia wspólne bazy w tym formacie aby
-unikn±æ niekonsekwencji miêdzy pulpitami. Ta baza zosta³a stworzona
-poprzez konwersjê istniej±cych baz KDE i GNOME do nowego formatu i
-po³±czenie ich.
+Dlatego freedesktop.org udostÄ™pnia wspÃ³lne bazy w tym formacie aby
+uniknÄ…Ä‡ niekonsekwencji miÄ™dzy pulpitami. Ta baza zostaÅ‚a stworzona
+poprzez konwersjÄ™ istniejÄ…cych baz KDE i GNOME do nowego formatu i
+poÅ‚Ä…czenie ich.
 
 %prep
 %setup -q
