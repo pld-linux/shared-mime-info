@@ -1,109 +1,83 @@
-diff -aurN shared-mime-info-0.18.orig/update-mime-database.c shared-mime-info-0.18/update-mime-database.c
---- shared-mime-info-0.18.orig/update-mime-database.c	2005-12-19 17:37:47.000000000 +0100
-+++ shared-mime-info-0.18/update-mime-database.c	2006-08-19 10:37:55.000000000 +0200
-@@ -2569,8 +2569,10 @@
-       g_printerr ("Failed to write strings\n");
+--- shared-mime-info-0.21/update-mime-database.c.orig	2007-02-06 11:34:33.000000000 +0100
++++ shared-mime-info-0.21/update-mime-database.c	2007-07-04 08:16:56.450886660 +0200
+@@ -2586,8 +2586,10 @@
+       g_error ("Failed to write strings\n");
        return FALSE;
      }
 +#ifdef DEBUG
-   g_print ("Wrote %d strings at %x - %x\n", 
+   g_message ("Wrote %d strings at %x - %x\n", 
  	   g_hash_table_size (strings), strings_offset, offset);
 +#endif
  
    alias_offset = offset;
    if (!write_alias_cache (cache, strings, &offset))
-@@ -2578,56 +2580,63 @@
-       g_printerr ("Failed to write alias list\n");
+@@ -2595,7 +2597,9 @@
+       g_error ("Failed to write alias list\n");
        return FALSE;
      }
 +#ifdef DEBUG
-   g_print ("Wrote aliases at %x - %x\n", alias_offset, offset);
--
+   g_message ("Wrote aliases at %x - %x\n", alias_offset, offset);
 +#endif
+ 
    parent_offset = offset;
    if (!write_parent_cache (cache, strings, &offset))
-     {
-       g_printerr ("Failed to write parent list\n");
+@@ -2603,7 +2607,9 @@
+       g_error ("Failed to write parent list\n");
        return FALSE;
      }
 +#ifdef DEBUG
-   g_print ("Wrote parents at %x - %x\n", parent_offset, offset);
--
+   g_message ("Wrote parents at %x - %x\n", parent_offset, offset);
 +#endif
+ 
    literal_offset = offset;
    if (!write_literal_cache (cache, strings, &offset))
-     {
-       g_printerr ("Failed to write literal list\n");
+@@ -2611,7 +2617,9 @@
+       g_error ("Failed to write literal list\n");
        return FALSE;
      }
 +#ifdef DEBUG
-   g_print ("Wrote literal globs at %x - %x\n", literal_offset, offset);
--
+   g_message ("Wrote literal globs at %x - %x\n", literal_offset, offset);
 +#endif
+ 
    suffix_offset = offset;
    if (!write_suffix_cache (cache, strings, &offset))
-     {
-       g_printerr ("Failed to write suffix list\n");
+@@ -2619,7 +2627,9 @@
+       g_error ("Failed to write suffix list\n");
        return FALSE;
      }
 +#ifdef DEBUG
-   g_print ("Wrote suffix globs at %x - %x\n", suffix_offset, offset);
--
+   g_message ("Wrote suffix globs at %x - %x\n", suffix_offset, offset);
 +#endif
+ 
    glob_offset = offset;
    if (!write_glob_cache (cache, strings, &offset))
-     {
-       g_printerr ("Failed to write glob list\n");
+@@ -2627,7 +2637,9 @@
+       g_error ("Failed to write glob list\n");
        return FALSE;
      }
 +#ifdef DEBUG
-   g_print ("Wrote full globs at %x - %x\n", glob_offset, offset);
--
+   g_message ("Wrote full globs at %x - %x\n", glob_offset, offset);
 +#endif
+ 
    magic_offset = offset;
    if (!write_magic_cache (cache, strings, &offset))
-     {
-       g_printerr ("Failed to write magic list\n");
+@@ -2635,7 +2647,9 @@
+       g_error ("Failed to write magic list\n");
        return FALSE;
      }
 +#ifdef DEBUG
-   g_print ("Wrote magic at %x - %x\n", magic_offset, offset);
--
+   g_message ("Wrote magic at %x - %x\n", magic_offset, offset);
 +#endif
+ 
    namespace_offset = offset;
    if (!write_namespace_cache (cache, strings, &offset))
-     {
-       g_printerr ("Failed to write namespace list\n");
+@@ -2643,7 +2657,9 @@
+       g_error ("Failed to write namespace list\n");
        return FALSE;
      }
 +#ifdef DEBUG
-   g_print ("Wrote namespace list at %x - %x\n", namespace_offset, offset);
--
+   g_debug ("Wrote namespace list at %x - %x\n", namespace_offset, offset);
 +#endif
+ 
    rewind (cache);
    offset = 0; 
- 
-@@ -2700,9 +2709,9 @@
- 			     "Try rerunning me as root.\n"), argv[0], mime_dir);
- 		return EXIT_FAILURE;
- 	}
--
-+#ifdef DEBUG
- 	g_print("***\n* Updating MIME database in %s...\n", mime_dir);
--
-+#endif
- 	if (access(package_dir, F_OK))
- 	{
- 		fprintf(stderr,
-@@ -2844,9 +2853,9 @@
- 	g_hash_table_destroy(namespace_hash);
- 	g_hash_table_destroy(subclass_hash);
- 	g_hash_table_destroy(alias_hash);
--
-+#ifdef DEBUG
- 	g_print("***\n");
--
-+#endif
- 	check_in_path_xdg_data(mime_dir);
- 
- 	return EXIT_SUCCESS;
