@@ -1,13 +1,13 @@
 Summary:	Shared MIME-info specification
 Summary(pl.UTF-8):	Wspólna specyfikacja MIME-info
 Name:		shared-mime-info
-Version:	0.18
-Release:	2
+Version:	0.21
+Release:	1
 License:	GPL
 Group:		Applications
 #Source0:	http://freedesktop.org/software/shared-mime-info/%{name}-%{version}.tar.gz
-Source0:	http://freedesktop.org/~hadess/%{name}-%{version}.tar.gz
-# Source0-md5:	63398294a078dd9f72a7c4e122a668c8
+Source0:	http://people.freedesktop.org/~hadess/%{name}-%{version}.tar.bz2
+# Source0-md5:	e1965e129a473683ba395ebc02206367
 Patch0:		%{name}-dtd_path.patch
 Patch1:		%{name}-dicom.patch
 Patch2:		%{name}-directory_alias_fix.patch
@@ -24,6 +24,8 @@ BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_noarchpkgconfigdir	/usr/share/pkgconfig
 
 %description
 This is the freedesktop.org shared MIME info database.
@@ -119,5 +121,5 @@ fi
 %dir %{_datadir}/mime
 %dir %{_datadir}/mime/packages
 %{_datadir}/mime/packages/freedesktop.org.xml
-%{_mandir}/man*/*
-%{_pkgconfigdir}/*.pc
+%{_mandir}/man1/update-mime-database.1*
+%{_noarchpkgconfigdir}/shared-mime-info.pc
