@@ -84,6 +84,7 @@ połączenie ich.
 %patch4 -p1
 
 %build
+%{__intltoolize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
