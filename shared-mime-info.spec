@@ -13,6 +13,7 @@ Patch1:		%{name}-dicom.patch
 Patch2:		%{name}-directory_alias_fix.patch
 Patch3:		%{name}-debug.patch
 Patch4:		%{name}-pl.patch
+Patch5:		%{name}-pl.po-update.patch
 URL:		http://www.freedesktop.org/wiki/Software/shared-mime-info
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -82,6 +83,7 @@ połączenie ich.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 %build
 %{__intltoolize}
