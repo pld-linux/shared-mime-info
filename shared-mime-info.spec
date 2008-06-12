@@ -8,11 +8,9 @@ Group:		Applications
 #Source0:	http://freedesktop.org/software/shared-mime-info/%{name}-%{version}.tar.gz
 Source0:	http://people.freedesktop.org/~hadess/%{name}-%{version}.tar.bz2
 # Source0-md5:	b86a0aa5e87a307ede576088c6450a29
-Patch1:		%{name}-dicom.patch
-Patch2:		%{name}-directory_alias_fix.patch
-Patch3:		%{name}-debug.patch
-Patch4:		%{name}-pl.patch
-Patch5:		%{name}-pl.po-update.patch
+Patch0:		%{name}-dicom.patch
+Patch1:		%{name}-directory_alias_fix.patch
+Patch2:		%{name}-pl.po-update.patch
 URL:		http://www.freedesktop.org/wiki/Software/shared-mime-info
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -77,11 +75,9 @@ połączenie ich.
 
 %prep
 %setup -q
+%patch0 -p1
 %patch1 -p1
 %patch2 -p1
-#%%patch3 -p1
-#%%patch4 -p1
-#%%patch5 -p1
 
 %build
 %{__intltoolize}
