@@ -3,6 +3,7 @@ Summary(pl.UTF-8):	Wspólna specyfikacja MIME-info
 Name:		shared-mime-info
 Version:	0.40
 Release:	1
+Epoch:		1
 License:	GPL
 Group:		Applications
 #Source0:	http://freedesktop.org/software/shared-mime-info/%{name}-%{version}.tar.gz
