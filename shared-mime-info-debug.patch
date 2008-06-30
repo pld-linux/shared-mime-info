@@ -1,0 +1,83 @@
+--- shared-mime-info-0.21/update-mime-database.c.orig	2007-02-06 11:34:33.000000000 +0100
++++ shared-mime-info-0.21/update-mime-database.c	2007-07-04 08:16:56.450886660 +0200
+@@ -2586,8 +2586,10 @@
+       g_error ("Failed to write strings\n");
+       return FALSE;
+     }
++#ifdef DEBUG
+   g_message ("Wrote %d strings at %x - %x\n", 
+ 	   g_hash_table_size (strings), strings_offset, offset);
++#endif
+ 
+   alias_offset = offset;
+   if (!write_alias_cache (cache, strings, &offset))
+@@ -2595,7 +2597,9 @@
+       g_error ("Failed to write alias list\n");
+       return FALSE;
+     }
++#ifdef DEBUG
+   g_message ("Wrote aliases at %x - %x\n", alias_offset, offset);
++#endif
+ 
+   parent_offset = offset;
+   if (!write_parent_cache (cache, strings, &offset))
+@@ -2603,7 +2607,9 @@
+       g_error ("Failed to write parent list\n");
+       return FALSE;
+     }
++#ifdef DEBUG
+   g_message ("Wrote parents at %x - %x\n", parent_offset, offset);
++#endif
+ 
+   literal_offset = offset;
+   if (!write_literal_cache (cache, strings, &offset))
+@@ -2611,7 +2617,9 @@
+       g_error ("Failed to write literal list\n");
+       return FALSE;
+     }
++#ifdef DEBUG
+   g_message ("Wrote literal globs at %x - %x\n", literal_offset, offset);
++#endif
+ 
+   suffix_offset = offset;
+   if (!write_suffix_cache (cache, strings, &offset))
+@@ -2619,7 +2627,9 @@
+       g_error ("Failed to write suffix list\n");
+       return FALSE;
+     }
++#ifdef DEBUG
+   g_message ("Wrote suffix globs at %x - %x\n", suffix_offset, offset);
++#endif
+ 
+   glob_offset = offset;
+   if (!write_glob_cache (cache, strings, &offset))
+@@ -2627,7 +2637,9 @@
+       g_error ("Failed to write glob list\n");
+       return FALSE;
+     }
++#ifdef DEBUG
+   g_message ("Wrote full globs at %x - %x\n", glob_offset, offset);
++#endif
+ 
+   magic_offset = offset;
+   if (!write_magic_cache (cache, strings, &offset))
+@@ -2635,7 +2647,9 @@
+       g_error ("Failed to write magic list\n");
+       return FALSE;
+     }
++#ifdef DEBUG
+   g_message ("Wrote magic at %x - %x\n", magic_offset, offset);
++#endif
+ 
+   namespace_offset = offset;
+   if (!write_namespace_cache (cache, strings, &offset))
+@@ -2643,7 +2657,9 @@
+       g_error ("Failed to write namespace list\n");
+       return FALSE;
+     }
++#ifdef DEBUG
+   g_debug ("Wrote namespace list at %x - %x\n", namespace_offset, offset);
++#endif
+ 
+   rewind (cache);
+   offset = 0; 
