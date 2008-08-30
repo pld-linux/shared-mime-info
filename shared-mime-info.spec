@@ -1,3 +1,6 @@
+# TODO
+# - *.pc file to -devel
+# - generated files in /usr/share/mime doesn't go with FHS concept. package them?
 Summary:	Shared MIME-info specification
 Summary(pl.UTF-8):	Wspólna specyfikacja MIME-info
 Name:		shared-mime-info
