@@ -1,28 +1,26 @@
 Summary:	Shared MIME-info specification
 Summary(pl.UTF-8):	Wspólna specyfikacja MIME-info
 Name:		shared-mime-info
-Version:	0.50
+Version:	0.51
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications
 #Source0:	http://freedesktop.org/software/shared-mime-info/%{name}-%{version}.tar.gz
 Source0:	http://people.freedesktop.org/~hadess/%{name}-%{version}.tar.bz2
-# Source0-md5:	e6adfaf1989140b3d3930c3842a01895
-Patch0:		%{name}-dicom.patch
-Patch1:		%{name}-directory_alias_fix.patch
-Patch2:		%{name}-pl.po-update.patch
+# Source0-md5:	01d72161f7d88123fbccd378871f02f0
+Patch0:		%{name}-pl.po-update.patch
 URL:		http://www.freedesktop.org/wiki/Software/shared-mime-info
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	docbook-utils
-BuildRequires:	glib2-devel >= 1:2.17.2
+BuildRequires:	glib2-devel >= 1:2.18.0
 BuildRequires:	intltool
 BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
-Requires:	glib2 >= 1:2.17.2
+Requires:	glib2 >= 1:2.18.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_noarchpkgconfigdir	/usr/share/pkgconfig
@@ -78,8 +76,6 @@ połączenie ich.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
 
 %build
 %{__intltoolize}
