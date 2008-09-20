@@ -1,12 +1,12 @@
-diff -urN shared-mime-info-0.51/po/pl.po shared-mime-info-0.51.new/po/pl.po
---- shared-mime-info-0.51/po/pl.po	2007-07-03 00:12:02.000000000 +0200
-+++ shared-mime-info-0.51.new/po/pl.po	2008-09-20 00:59:12.000000000 +0200
-@@ -1,15 +1,15 @@
+--- shared-mime-info-0.51/po/pl.po.orig	2007-07-03 00:12:02.000000000 +0200
++++ shared-mime-info-0.51/po/pl.po	2008-09-20 07:11:47.639613660 +0200
+@@ -1,15 +1,16 @@
  # Polish translation for shared-mime-info
  # Copyright (C) 2007 Free Software Foundation, Inc.
  # This file is distributed under the same license as the shared-mime-info package.
 -# Artur Flinta <aflinta@at.kernel.pl>, 2004
 +# Artur Flinta <aflinta@at.kernel.pl>, 2004-2007
++# Jakub Bogusz <qboosh@pld-linux.org>, 2008.
  #
  msgid ""
  msgstr ""
@@ -17,12 +17,12 @@ diff -urN shared-mime-info-0.51/po/pl.po shared-mime-info-0.51.new/po/pl.po
 -"PO-Revision-Date: 2007-07-02 23:10-0100\n"
 -"Last-Translator: Artur Flinta <aflinta@at.kernel.pl>\n"
 +"POT-Creation-Date: 2008-09-20 00:59+0200\n"
-+"PO-Revision-Date: 2008-06-12 00:12+0200\n"
++"PO-Revision-Date: 2008-09-20 07:08+0200\n"
 +"Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
  "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
  "MIME-Version: 1.0\n"
  "Content-Type: text/plain; charset=UTF-8\n"
-@@ -20,1911 +20,2289 @@
+@@ -20,1911 +21,2270 @@
  msgstr "Obraz 3D Studio"
  
  #: ../freedesktop.org.xml.in.h:2
@@ -214,7 +214,7 @@ diff -urN shared-mime-info-0.51/po/pl.po shared-mime-info-0.51.new/po/pl.po
 +#. http://www.blu-raydisc.com/Section-13470/Section-13890/Index.html
 +#: ../freedesktop.org.xml.in.h:41
 +msgid "Blu-ray video disc"
-+msgstr ""
++msgstr "Płyta wideo Blu-ray"
 +
 +#: ../freedesktop.org.xml.in.h:42
 +msgid "Bzip archive"
@@ -664,9 +664,8 @@ diff -urN shared-mime-info-0.51/po/pl.po shared-mime-info-0.51.new/po/pl.po
 +#. http://en.wikipedia.org/wiki/HD_DVD
 +#. http://www.dvdafteredit.com/wiki/The_HVDVD_TS_Folder
 +#: ../freedesktop.org.xml.in.h:132
-+#, fuzzy
 +msgid "HD DVD video disc"
-+msgstr "Plik wideo DV"
++msgstr "Płyta wideo HD DVD"
 +
 +#: ../freedesktop.org.xml.in.h:133
  msgid "HDF document"
@@ -1598,7 +1597,7 @@ diff -urN shared-mime-info-0.51/po/pl.po shared-mime-info-0.51.new/po/pl.po
 +#. http://www.re.org/kristin/picturecd.html
 +#: ../freedesktop.org.xml.in.h:318
 +msgid "Picture CD"
-+msgstr ""
++msgstr "Płyta Picture CD"
 +
 +#: ../freedesktop.org.xml.in.h:319
  msgid "PlanPerfect spreadsheet"
@@ -2026,7 +2025,7 @@ diff -urN shared-mime-info-0.51/po/pl.po shared-mime-info-0.51.new/po/pl.po
 +#. http://everything2.com/index.pl?node_id=1009222
 +#: ../freedesktop.org.xml.in.h:408
 +msgid "Super Video CD"
-+msgstr ""
++msgstr "Płyta Super Video CD"
 +
 +#: ../freedesktop.org.xml.in.h:409
  msgid "T602 document"
@@ -2230,9 +2229,8 @@ diff -urN shared-mime-info-0.51/po/pl.po shared-mime-info-0.51.new/po/pl.po
 +#. http://en.wikipedia.org/wiki/Video_CD
 +#. http://www.herongyang.com/CD-DVD/VCD-Movie-File-Directory-Structure.html
 +#: ../freedesktop.org.xml.in.h:452
-+#, fuzzy
 +msgid "Video CD"
-+msgstr "Plik wideo DV"
++msgstr "Płyta Video CD"
 +
 +#: ../freedesktop.org.xml.in.h:453
  msgid "Vivo video"
@@ -2304,7 +2302,7 @@ diff -urN shared-mime-info-0.51/po/pl.po shared-mime-info-0.51.new/po/pl.po
 -#: ../freedesktop.org.xml.in.h:384
 +#: ../freedesktop.org.xml.in.h:465
 +msgid "Windows Installer package"
-+msgstr ""
++msgstr "Pakiet Windows Installera"
 +
 +#: ../freedesktop.org.xml.in.h:466
 +msgid "Windows Media Station file"
@@ -2323,9 +2321,8 @@ diff -urN shared-mime-info-0.51/po/pl.po shared-mime-info-0.51.new/po/pl.po
 +msgstr "Wyciąg z rejestru Windows"
 +
 +#: ../freedesktop.org.xml.in.h:470
-+#, fuzzy
 +msgid "Windows animated cursor"
-+msgstr "Kursor Windows"
++msgstr "Animowany kursor Windows"
 +
 +#: ../freedesktop.org.xml.in.h:471
  msgid "Windows cursor"
@@ -2472,14 +2469,13 @@ diff -urN shared-mime-info-0.51/po/pl.po shared-mime-info-0.51.new/po/pl.po
 -#: ../freedesktop.org.xml.in.h:409
 +#. http://en.wikipedia.org/wiki/Red_Book_(audio_CD_standard)
 +#: ../freedesktop.org.xml.in.h:501
-+#, fuzzy
 +msgid "audio CD"
-+msgstr "Plik wideo DV"
++msgstr "płyta CD Audio"
 +
 +#. http://en.wikipedia.org/wiki/DVD-Audio
 +#: ../freedesktop.org.xml.in.h:503
 +msgid "audio DVD"
-+msgstr ""
++msgstr "płyta DVD Audio"
 +
 +#: ../freedesktop.org.xml.in.h:504
  msgid "author credits"
@@ -2499,22 +2495,22 @@ diff -urN shared-mime-info-0.51/po/pl.po shared-mime-info-0.51.new/po/pl.po
 +#. http://en.wikipedia.org/wiki/Blu-ray_Disc
 +#: ../freedesktop.org.xml.in.h:508
 +msgid "blank Blu-ray disc"
-+msgstr ""
++msgstr "czysta płyta Blu-ray"
 +
 +#. http://en.wikipedia.org/wiki/Compact_Disc
 +#: ../freedesktop.org.xml.in.h:510
 +msgid "blank CD disc"
-+msgstr ""
++msgstr "czysta płyta CD"
 +
 +#. http://en.wikipedia.org/wiki/DVD
 +#: ../freedesktop.org.xml.in.h:512
 +msgid "blank DVD disc"
-+msgstr ""
++msgstr "czysta płyta DVD"
 +
 +#. http://en.wikipedia.org/wiki/HD_DVD
 +#: ../freedesktop.org.xml.in.h:514
 +msgid "blank HD DVD disc"
-+msgstr ""
++msgstr "czysta płyta HD DVD"
 +
 +#: ../freedesktop.org.xml.in.h:515
  msgid "block device"
@@ -2553,9 +2549,8 @@ diff -urN shared-mime-info-0.51/po/pl.po shared-mime-info-0.51.new/po/pl.po
 +msgstr "skompresowany obraz SVG"
 +
 +#: ../freedesktop.org.xml.in.h:522
-+#, fuzzy
 +msgid "compressed Tracker audio"
-+msgstr "Skompresowany plik dźwiękowy Trackera"
++msgstr "skompresowany plik dźwiękowy Trackera"
 +
 +#: ../freedesktop.org.xml.in.h:523
  msgid "desktop configuration file"
@@ -2580,7 +2575,7 @@ diff -urN shared-mime-info-0.51/po/pl.po shared-mime-info-0.51.new/po/pl.po
 +#. http://en.wikipedia.org/wiki/Design_rule_for_Camera_File_system
 +#: ../freedesktop.org.xml.in.h:528
 +msgid "digital photos"
-+msgstr ""
++msgstr "zdjęcia cyfrowe"
 +
 +#: ../freedesktop.org.xml.in.h:529
 +msgid "digital raw image"
@@ -2592,14 +2587,12 @@ diff -urN shared-mime-info-0.51/po/pl.po shared-mime-info-0.51.new/po/pl.po
  
 -#: ../freedesktop.org.xml.in.h:422
 +#: ../freedesktop.org.xml.in.h:531
-+#, fuzzy
 +msgid "electronic book document"
-+msgstr "Książka elektroniczna"
++msgstr "książka elektroniczna"
 +
 +#: ../freedesktop.org.xml.in.h:532
-+#, fuzzy
 +msgid "electronic business card"
-+msgstr "Wizytówka elektroniczna"
++msgstr "wizytówka elektroniczna"
 +
 +#: ../freedesktop.org.xml.in.h:533
  msgid "email headers"
@@ -2761,7 +2754,7 @@ diff -urN shared-mime-info-0.51/po/pl.po shared-mime-info-0.51.new/po/pl.po
 +#. see fd.o hal spec
 +#: ../freedesktop.org.xml.in.h:564
 +msgid "portable audio player"
-+msgstr ""
++msgstr "przenośny odtwarzacz muzyki"
 +
 +#: ../freedesktop.org.xml.in.h:565
  msgid "profiler results"
@@ -2836,7 +2829,7 @@ diff -urN shared-mime-info-0.51/po/pl.po shared-mime-info-0.51.new/po/pl.po
 +#. http://bugzilla.gnome.org/show_bug.cgi?id=509823#c3
 +#: ../freedesktop.org.xml.in.h:579
 +msgid "software"
-+msgstr ""
++msgstr "oprogramowanie"
 +
 +#: ../freedesktop.org.xml.in.h:580
 +msgid "spreadsheet interchange document"
@@ -2910,22 +2903,11 @@ diff -urN shared-mime-info-0.51/po/pl.po shared-mime-info-0.51.new/po/pl.po
 -#: ../freedesktop.org.xml.in.h:479
 -msgid "ustar archive"
 -msgstr "archiwum ustar"
-+#. http://en.wikipedia.org/wiki/DVD-Video
-+#: ../freedesktop.org.xml.in.h:590
-+#, fuzzy
-+msgid "video DVD"
-+msgstr "Plik wideo DV"
- 
+-
 -#: ../freedesktop.org.xml.in.h:480
 -msgid "zoo archive"
 -msgstr "archiwum zoo"
-+#, fuzzy
-+#~ msgid "DVD Audio"
-+#~ msgstr "Plik dźwiękowy Ogg"
-+
-+#, fuzzy
-+#~ msgid "DVD Video"
-+#~ msgstr "Plik wideo DV"
-+
-+#~ msgid "Speech document"
-+#~ msgstr "Dokument Speech"
++#. http://en.wikipedia.org/wiki/DVD-Video
++#: ../freedesktop.org.xml.in.h:590
++msgid "video DVD"
++msgstr "płyta wideo DVD"
