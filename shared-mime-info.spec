@@ -4,13 +4,13 @@
 Summary:	Shared MIME-info specification
 Summary(pl.UTF-8):	Wspólna specyfikacja MIME-info
 Name:		shared-mime-info
-Version:	0.71
+Version:	0.80
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications
 Source0:	http://people.freedesktop.org/~hadess/%{name}-%{version}.tar.bz2
-# Source0-md5:	0a90508234d415f761a79fbffdff74f4
+# Source0-md5:	eb8d24a6a80888849c9db7f30232ba6a
 URL:		http://www.freedesktop.org/wiki/Software/shared-mime-info
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.9
@@ -79,7 +79,7 @@ połączenie ich.
 Summary:	Manual for %{name}
 Summary(fr.UTF-8):	Documentation pour %{name}
 Summary(it.UTF-8):	Documentazione di %{name}
-Summary(pl.UTF-8):	Podręcznik dla %{name}
+Summary(pl.UTF-8):	Dokumentacja do %{name}
 Group:		Documentation
 
 %description doc
