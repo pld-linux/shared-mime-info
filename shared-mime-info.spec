@@ -4,13 +4,13 @@
 Summary:	Shared MIME-info specification
 Summary(pl.UTF-8):	Wspólna specyfikacja MIME-info
 Name:		shared-mime-info
-Version:	0.90
+Version:	0.91
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications
-Source0:	http://people.freedesktop.org/~hadess/%{name}-%{version}.tar.bz2
-# Source0-md5:	967d68d3890ba3994cfce3adf5b8f15b
+Source0:	http://people.freedesktop.org/~hadess/%{name}-%{version}.tar.xz
+# Source0-md5:	982a211560ba4c47dc791ccff34e8fbc
 URL:		http://www.freedesktop.org/wiki/Software/shared-mime-info
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.9
@@ -21,11 +21,11 @@ BuildRequires:	glib2-devel >= 1:2.18.0
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.311
+BuildRequires:	rpmbuild(macros) >= 1.446
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 Requires:	glib2 >= 1:2.18.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_noarchpkgconfigdir	/usr/share/pkgconfig
 
 %description
 This is the freedesktop.org shared MIME info database.
@@ -155,7 +155,7 @@ fi
 %dir %{_datadir}/mime/packages
 %{_datadir}/mime/packages/freedesktop.org.xml
 %{_mandir}/man1/update-mime-database.1*
-%{_noarchpkgconfigdir}/shared-mime-info.pc
+%{_npkgconfigdir}/shared-mime-info.pc
 
 # generated content
 %dir %{_datadir}/mime/application
