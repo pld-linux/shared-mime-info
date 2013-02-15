@@ -1,16 +1,21 @@
 # TODO
 # - *.pc file to -devel, however harmless due it's not pulling any extra deps
 # - try to move generated files in /usr/share/mime to /var/cache/mime for FHS.
+#
+# Conditional build:
+%bcond_without	tests		# build without tests
+%bcond_with	doc			# build documentation
+
 Summary:	Shared MIME-info specification
 Summary(pl.UTF-8):	Wspólna specyfikacja MIME-info
 Name:		shared-mime-info
-Version:	1.0
+Version:	1.1
 Release:	1
 Epoch:		1
 License:	GPL
-Group:		Applications
+Group:		Applications/Databases
 Source0:	http://people.freedesktop.org/~hadess/%{name}-%{version}.tar.xz
-# Source0-md5:	901b7977dbb2b71d12d30d4d8fb97028
+# Source0-md5:	12ba00bf1cb2e69bfba73127e708e833
 URL:		http://www.freedesktop.org/wiki/Software/shared-mime-info
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.9
@@ -103,21 +108,26 @@ Dokumentacja do %{name}.
 %{__autoconf}
 %{__automake}
 %configure \
+	--disable-silent-rules \
+	--disable-default-make-check \
 	--disable-update-mimedb
 %{__make} -j1
 
-db2html shared-mime-info-spec.xml
+%{?with_tests:%{__make} check}
+
+%{?with_doc:db2html shared-mime-info-spec.xml}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -rf $RPM_BUILD_ROOT%{_datadir}/locale
+# remove bogus translation files
+# translations are already in the xml file installed
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}
 
 # convience symlink
-ln -s t1.html shared-mime-info-spec/index.html
+%{?with_doc:ln -s t1.html shared-mime-info-spec/index.html}
 
 # ghost generated files
 # see update-mime-database.c const char *media_types
@@ -144,12 +154,12 @@ rm -rf $RPM_BUILD_ROOT
 %preun
 # remove dirs and files created by update-mime-database
 if [ "$1" = "0" ]; then
-	rm -rf %{_datadir}/mime/*
+	%{__rm} -rf %{_datadir}/mime/*
 fi
 
 %files
 %defattr(644,root,root,755)
-%doc README NEWS
+%doc README NEWS ChangeLog
 %attr(755,root,root) %{_bindir}/update-mime-database
 %dir %{_datadir}/mime
 %dir %{_datadir}/mime/packages
@@ -181,6 +191,8 @@ fi
 %ghost %{_datadir}/mime/treemagic
 %ghost %{_datadir}/mime/mime.cache
 
+%if %{with doc}
 %files doc
 %defattr(644,root,root,755)
 %doc shared-mime-info-spec/*
+%endif
