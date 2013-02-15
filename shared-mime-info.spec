@@ -4,7 +4,7 @@
 #
 # Conditional build:
 %bcond_without	tests		# build without tests
-%bcond_with	doc			# build documentation
+%bcond_without	doc			# build documentation
 
 Summary:	Shared MIME-info specification
 Summary(pl.UTF-8):	Wspólna specyfikacja MIME-info
