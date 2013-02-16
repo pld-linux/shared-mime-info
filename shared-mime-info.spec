@@ -4,7 +4,7 @@
 #
 # Conditional build:
 %bcond_without	tests		# build without tests
-%bcond_without	doc			# build documentation
+%bcond_without	doc		# build documentation
 
 Summary:	Shared MIME-info specification
 Summary(pl.UTF-8):	Wspólna specyfikacja MIME-info
@@ -81,23 +81,16 @@ poprzez konwersję istniejących baz KDE i GNOME do nowego formatu i
 połączenie ich.
 
 %package doc
-Summary:	Manual for %{name}
-Summary(fr.UTF-8):	Documentation pour %{name}
-Summary(it.UTF-8):	Documentazione di %{name}
-Summary(pl.UTF-8):	Dokumentacja do %{name}
+Summary:	Shared MIME-info Database specification
+Summary(pl.UTF-8):	Specyfikacja Shared MIME-info Database
 Group:		Documentation
 
 %description doc
-Documentation for %{name}.
-
-%description doc -l fr.UTF-8
-Documentation pour %{name}.
-
-%description doc -l it.UTF-8
-Documentazione di %{name}.
+Shared MIME-info Database specification
 
 %description doc -l pl.UTF-8
-Dokumentacja do %{name}.
+Specyfikacja Shared MIME-info Database (współdzielonej bazy danych
+informacji MIME).
 
 %prep
 %setup -q
