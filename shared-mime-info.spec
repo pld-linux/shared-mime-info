@@ -9,14 +9,14 @@
 Summary:	Shared MIME-info specification
 Summary(pl.UTF-8):	Wspólna specyfikacja MIME-info
 Name:		shared-mime-info
-Version:	1.5
+Version:	1.6
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications/Databases
-Source0:	http://people.freedesktop.org/~hadess/%{name}-%{version}.tar.xz
-# Source0-md5:	cc3e78d8bceaf2b361f62d67a8b4dda4
-URL:		http://www.freedesktop.org/wiki/Software/shared-mime-info
+Source0:	https://people.freedesktop.org/~hadess/%{name}-%{version}.tar.xz
+# Source0-md5:	10abc5c4e6b22223ff05c3bd70ff9e8f
+URL:		https://www.freedesktop.org/wiki/Software/shared-mime-info
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	docbook-dtd412-xml
