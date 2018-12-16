@@ -9,13 +9,13 @@
 Summary:	Shared MIME-info specification
 Summary(pl.UTF-8):	Wspólna specyfikacja MIME-info
 Name:		shared-mime-info
-Version:	1.9
+Version:	1.10
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications/Databases
 Source0:	https://people.freedesktop.org/~hadess/%{name}-%{version}.tar.xz
-# Source0-md5:	45103889b91242850aa47f09325e798b
+# Source0-md5:	418c2ced9dc4dd5ca8b06a755e6d64e9
 URL:		https://www.freedesktop.org/wiki/Software/shared-mime-info
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.9
