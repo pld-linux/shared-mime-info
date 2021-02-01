@@ -9,25 +9,27 @@
 Summary:	Shared MIME-info specification
 Summary(pl.UTF-8):	Wspólna specyfikacja MIME-info
 Name:		shared-mime-info
-Version:	1.10
+Version:	2.1
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications/Databases
-Source0:	https://people.freedesktop.org/~hadess/%{name}-%{version}.tar.xz
-# Source0-md5:	418c2ced9dc4dd5ca8b06a755e6d64e9
+Source0:	https://gitlab.freedesktop.org/xdg/shared-mime-info/-/archive/%{version}/%{name}-%{version}.tar.bz2
+# Source0-md5:	6bdad09c2223dec1b6ccc80459ebe51b
 URL:		https://www.freedesktop.org/wiki/Software/shared-mime-info
-BuildRequires:	autoconf >= 2.50
-BuildRequires:	automake >= 1:1.9
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	docbook-utils
 BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.18.0
-BuildRequires:	intltool >= 0.35.0
+BuildRequires:	itstool
 BuildRequires:	libxml2-devel >= 1:2.6.26
+BuildRequires:	libxml2-progs
+BuildRequires:	meson >= 0.49.0
+BuildRequires:	ninja
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.446
+BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
+BuildRequires:	xmlto
 BuildRequires:	xz
 Requires:	glib2 >= 1:2.18.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -96,31 +98,24 @@ informacji MIME).
 %setup -q
 
 %build
-%{__intltoolize}
-%{__aclocal}
-%{__autoconf}
-%{__automake}
-%configure \
-	--disable-silent-rules \
-	--disable-default-make-check \
-	--disable-update-mimedb
-%{__make} -j1
+%meson build \
+	-Dupdate-mimedb=false
+%ninja_build -C build
 
-%{?with_tests:%{__make} check}
+%{?with_tests:%ninja_test -C build}
 
-%{?with_doc:db2html shared-mime-info-spec.xml}
+%{?with_doc:db2html data/shared-mime-info-spec.xml}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+%ninja_install -C build
 
 # remove bogus translation files
 # translations are already in the xml file installed
 %{__rm} -r $RPM_BUILD_ROOT%{_localedir}
 
 # convience symlink
-%{?with_doc:ln -s t1.html shared-mime-info-spec/index.html}
+%{?with_doc:ln -sf t1.html data/shared-mime-info-spec/index.html}
 
 # ghost generated files
 # see update-mime-database.c const char *media_types
@@ -152,13 +147,15 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc README NEWS ChangeLog
+%doc README.md NEWS
 %attr(755,root,root) %{_bindir}/update-mime-database
 %dir %{_datadir}/mime
 %dir %{_datadir}/mime/packages
 %{_datadir}/mime/packages/freedesktop.org.xml
 %{_mandir}/man1/update-mime-database.1*
 %{_npkgconfigdir}/shared-mime-info.pc
+%{_datadir}/gettext/its/shared-mime-info.its
+%{_datadir}/gettext/its/shared-mime-info.loc
 
 # generated content
 %dir %{_datadir}/mime/application
@@ -187,5 +184,5 @@ fi
 %if %{with doc}
 %files doc
 %defattr(644,root,root,755)
-%doc shared-mime-info-spec/*
+%doc data/shared-mime-info-spec/*
 %endif
