@@ -9,18 +9,19 @@
 Summary:	Shared MIME-info specification
 Summary(pl.UTF-8):	Wspólna specyfikacja MIME-info
 Name:		shared-mime-info
-Version:	2.2
+Version:	2.3
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications/Databases
 Source0:	https://gitlab.freedesktop.org/xdg/shared-mime-info/-/archive/%{version}/%{name}-%{version}.tar.bz2
-# Source0-md5:	22574ee319c1690a058fbcfcbc4542d3
+# Source0-md5:	a6c4b35bc36c3764d18e2472dc9c8484
 URL:		https://www.freedesktop.org/wiki/Software/shared-mime-info
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	docbook-utils
 BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.18.0
+BuildRequires:	libstdc++-devel >= 6:9
 BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	libxml2-progs
 BuildRequires:	meson >= 0.49.0
