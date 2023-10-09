@@ -1,0 +1,25 @@
+From 84169377477fcf2dda08e624a12be727c95aacc9 Mon Sep 17 00:00:00 2001
+From: Jan Palus <jpalus@fastmail.com>
+Date: Mon, 9 Oct 2023 14:00:03 +0200
+Subject: [PATCH] spec: use regular ascii apostrophe char instead of U+2019
+
+---
+ data/shared-mime-info-spec.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/data/shared-mime-info-spec.xml b/data/shared-mime-info-spec.xml
+index 9ba1cfc..3054fac 100644
+--- a/data/shared-mime-info-spec.xml
++++ b/data/shared-mime-info-spec.xml
+@@ -359,7 +359,7 @@ If <userinput>localName</userinput> is present but empty then the document eleme
+ any name, but the namespace must still match.
+ 				</para><para>
+ If <userinput>namespaceURI</userinput> is present but empty then the match is done entirely on
+-the document element’s local name and any namespace URI present in the document is ignored.
++the document element's local name and any namespace URI present in the document is ignored.
+ 				</para><para>
+ Both attributes must be specified, and at least one of them must be non-empty.
+ 				</para></listitem>
+-- 
+2.42.0
+
