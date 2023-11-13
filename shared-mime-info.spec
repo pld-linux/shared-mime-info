@@ -27,6 +27,7 @@ BuildRequires:	libxml2-progs
 BuildRequires:	meson >= 0.49.0
 BuildRequires:	ninja
 BuildRequires:	pkgconfig
+BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xmlto
@@ -86,6 +87,7 @@ połączenie ich.
 Summary:	Shared MIME-info Database specification
 Summary(pl.UTF-8):	Specyfikacja Shared MIME-info Database
 Group:		Documentation
+BuildArch:	noarch
 
 %description doc
 Shared MIME-info Database specification
