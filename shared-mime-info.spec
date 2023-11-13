@@ -17,8 +17,8 @@ Group:		Applications/Databases
 Source0:	https://gitlab.freedesktop.org/xdg/shared-mime-info/-/archive/%{version}/%{name}-%{version}.tar.bz2
 # Source0-md5:	a68311eb76715326cb2edab647d26ea5
 URL:		https://www.freedesktop.org/wiki/Software/shared-mime-info
-BuildRequires:	docbook-dtd412-xml
-BuildRequires:	docbook-utils
+%{?with_doc:BuildRequires:	docbook-dtd412-xml}
+%{?with_doc:BuildRequires:	docbook-utils}
 BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.18.0
 BuildRequires:	libstdc++-devel >= 6:9
