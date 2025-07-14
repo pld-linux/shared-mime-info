@@ -106,7 +106,10 @@ informacji MIME).
 
 %{?with_tests:%ninja_test -C build}
 
-%{?with_doc:db2html data/shared-mime-info-spec.xml}
+%if %{with doc}
+SP_ENCODING=utf-8 \
+db2html data/shared-mime-info-spec.xml
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
