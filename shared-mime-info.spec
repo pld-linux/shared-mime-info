@@ -10,7 +10,7 @@ Summary:	Shared MIME-info specification
 Summary(pl.UTF-8):	Wspólna specyfikacja MIME-info
 Name:		shared-mime-info
 Version:	2.4
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPL
 Group:		Applications/Databases
@@ -100,7 +100,7 @@ informacji MIME).
 %setup -q
 
 %build
-%meson build \
+%meson \
 	-Dupdate-mimedb=false
 %ninja_build -C build
 
