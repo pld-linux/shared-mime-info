@@ -28,7 +28,7 @@ BuildRequires:	meson >= 0.49.0
 BuildRequires:	ninja
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-build >= 4.6
-BuildRequires:	rpmbuild(macros) >= 1.736
+BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xmlto
 BuildRequires:	xz
@@ -102,7 +102,8 @@ informacji MIME).
 %build
 %meson \
 	-Dupdate-mimedb=false
-%ninja_build -C build
+
+%meson_build
 
 %{?with_tests:%ninja_test -C build}
 
@@ -113,7 +114,8 @@ db2html data/shared-mime-info-spec.xml
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%ninja_install -C build
+
+%meson_install
 
 # remove bogus translation files
 # translations are already in the xml file installed
