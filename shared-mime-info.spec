@@ -105,7 +105,7 @@ informacji MIME).
 
 %meson_build
 
-%{?with_tests:%ninja_test -C build}
+%{?with_tests:%meson_test}
 
 %if %{with doc}
 SP_ENCODING=utf-8 \
