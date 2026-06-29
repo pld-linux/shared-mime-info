@@ -6,16 +6,20 @@
 %bcond_without	tests		# build without tests
 %bcond_without	doc		# build documentation
 
+%define		xdgmime_ref	04ce4cd90cb3fa77d5348662de221a6f33b21b17
+
 Summary:	Shared MIME-info specification
 Summary(pl.UTF-8):	Wspólna specyfikacja MIME-info
 Name:		shared-mime-info
-Version:	2.4
-Release:	3
+Version:	2.5.1
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications/Databases
 Source0:	https://gitlab.freedesktop.org/xdg/shared-mime-info/-/archive/%{version}/%{name}-%{version}.tar.bz2
-# Source0-md5:	a68311eb76715326cb2edab647d26ea5
+# Source0-md5:	6fe2be256bce95b504c8fa2ce6862d74
+Source1:	https://gitlab.freedesktop.org/xdg/xdgmime/-/archive/%{xdgmime_ref}/xdgmime-%{xdgmime_ref}.tar.bz2
+# Source1-md5:	6273c84b687635152757f15efb56afee
 URL:		https://www.freedesktop.org/wiki/Software/shared-mime-info
 %{?with_doc:BuildRequires:	docbook-dtd412-xml}
 %{?with_doc:BuildRequires:	docbook-utils}
@@ -23,7 +27,7 @@ BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.18.0
 BuildRequires:	libstdc++-devel >= 6:9
 BuildRequires:	libxml2-devel >= 1:2.6.26
-BuildRequires:	libxml2-progs
+%{?with_tests:BuildRequires:	libxml2-progs}
 BuildRequires:	meson >= 0.49.0
 BuildRequires:	ninja
 BuildRequires:	pkgconfig
@@ -97,10 +101,14 @@ Specyfikacja Shared MIME-info Database (współdzielonej bazy danych
 informacji MIME).
 
 %prep
-%setup -q
+%setup -q %{?with_tests:-a1}
+
+%{?with_tests:%{__mv} xdgmime-%{xdgmime_ref} subprojects/xdgmime}
 
 %build
 %meson \
+	%{?with_tests:--force-fallback-for=xdgmime} \
+	-Dbuild-tests=%{__true_false tests} \
 	-Dupdate-mimedb=false
 
 %meson_build
