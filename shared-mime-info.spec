@@ -108,6 +108,7 @@ informacji MIME).
 %build
 %meson \
 	%{?with_tests:--force-fallback-for=xdgmime} \
+	-Dbuild-spec=%{__true_false doc} \
 	-Dbuild-tests=%{__true_false tests} \
 	-Dupdate-mimedb=false
 
